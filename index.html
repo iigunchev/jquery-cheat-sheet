@@ -4,9 +4,212 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/assets/js/vanilla.js" defer></script>
     <title>jQuery Cheat Sheet</title>
 </head>
 <body>
     
+    <div class="main-container">
+        <section class="btn-container">
+            <button id='all-btn'>All</button>
+            <button id='functions-btn'>Functions</button>
+            <button id='selectors-btn'>Selectors</button>
+            <button id='events-btn'>Events</button>
+        </section>
+        <main>
+            <section class="grid-container">
+        
+                <!-- FUNCTIONS -->
+        
+                <div class="card" data-id='fun-01'>
+                    <h2>Functions</h2>
+                    <h1>Create an HTML element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Remove an HTML element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Append an HTML element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Prepend an HTML element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Create + add an HTML element after another element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Create + add an HTML element before another element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Clone an HTML element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Add a class to an HTML item</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Remove a class to an HTML item</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Toggle the class of an HTML item</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Toggle the class of an HTML item</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Add a disabled attribute to an HTML button</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Remove the disabled attribute of an HTML button</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Set a data-src attribute to a img element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Remove the data-src attribute of the img element</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Hide an HTML element on click (display: none)</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Show an HTML element on click (display: block)</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Fade in an HTML element using jQuery</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Fade out an HTML element using jQuery</h1>
+                </div>
+                <div class="card">
+                    <h2>Functions</h2>
+                    <h1>Animate an item after 2s from the initial page load</h1>
+                </div>
+        
+                <!-- SELECTORS -->
+                
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Iterate a collection of elements</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Get the parent element of a certain element</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Get the collection of children of a certain element</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Get all the elements that have a certain class</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Get an item by id</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Get all the elements that have a certain class and a certain property</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Get the selected option of a select element</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Change an attribute of a first element</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Show the value of a first input on the page</h1>
+                </div>
+                <div class="card">
+                    <h2>Selectors</h2>
+                    <h1>Remove all items from a specific selector</h1>
+                </div>
+                
+                <!-- EVENTS -->
+        
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>HTML document loaded</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>HTML item clicked</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>HTML item double clicked</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Key pressed on keyboard</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Mouse cursor moves</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Value changed on text input</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Image loaded</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Image load fail</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Form submitted</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Option selected on select element</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>When you position the mouse over an element</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Checkbox checked or unchecked</h1>
+                </div>
+                <div class="card">
+                    <h2>Events</h2>
+                    <h1>Show the clicked item of an UL list</h1>
+                </div>
+            </section>
+            <section class="comparison-container">
+
+            </section>
+        </main>
+    </div>
+    <div class="black-bg"></div>
 </body>
 </html>
