@@ -9,6 +9,7 @@ body {
     font-family: 'Lato', sans-serif;
     padding-top: 25px;
     position: relative;
+    height: 100vh;
 }
 button {
     padding: 5px 10px;
@@ -28,6 +29,9 @@ button:hover {
 main {
     display: flex;
     position: relative;
+}
+code {
+    display: block;
 }
 .main-container {
     margin: 0 auto;
@@ -53,6 +57,7 @@ main {
     flex-direction: column;
     gap: 1.5em;
     align-items: center;
+    position: relative;
 }
 .comparison-container>div {
     width: 90%;
@@ -106,13 +111,15 @@ main {
     width: 100%;
     justify-content: space-evenly;
     margin-top: 15px;
+    gap: 1.5em;
 }
 .flex-column {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 1em;
 }
 .info-card {
+    height: 80%;
     background-color: #e7e9eb;
     padding: 10px;
     border-radius: 5px;
@@ -123,18 +130,24 @@ main {
 .code-snippet {
     background-color: #fff;
     padding: 10px;
-    margin-top: 10px;
     border-left: 3px solid #19191A;
 }
 .info-header {
     /* background-color: #10162F; */
     border-radius: 5px 5px 0px 0px;
+    display: flex;
+    align-items: flex-end;
 }
 .centered{
-    width: 500px;
+    width: 600px;
+    padding: 20px;
     position:fixed; 
-    top: calc(50% - 300px);
-    left: calc(50% - 250px);
+    top: calc(50% - 350px);
+    left: calc(50% - 300px);
+    background-color: #fff;
+    box-shadow: -7.5px 7.5px black;
+    border: 2px solid black;
+    display:none;
 }
 .black-bg {
     width: 100%;
@@ -144,8 +157,20 @@ main {
     top: 0;
     display: none;
 }
-.test-area {
+.js-test-area, .jq-test-area {
     background: #fff;
     height: 100px;
     width: 100%;
+}
+.close-div {
+    text-align: right;
+}
+.close {
+    text-align: right;
+}
+.close:hover {
+    transform: rotate(180deg);
+    cursor: pointer;
+    transition: 250 ease-in-out;
+    text-decoration: underline;
 }
