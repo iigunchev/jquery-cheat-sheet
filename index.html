@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script  src="/assets/js/vanilla.js" defer></script>
@@ -19,11 +19,45 @@
     
     <div class="main-container">
         <section class="btn-container">
-            <button id='all-btn'>All</button>
-            <button id='functions-btn'>Functions</button>
-            <button id='selectors-btn'>Selectors</button>
-            <button id='events-btn'>Events</button>
+            <div class="buttons-div">
+                <button id='all-btn'>All</button>
+                <button id='functions-btn'>Functions</button>
+                <button id='selectors-btn'>Selectors</button>
+                <button id='events-btn'>Events</button>
+            </div>
+            <div class="search-area">
+                <input type="search" name="search" id="search">
+                <span class="material-icons-outlined search-icon">
+                    search
+                    </span></button>
+            </div>
+            <div class="add-card">
+                <span class="material-icons-outlined addCard">
+                    add_circle_outline
+                    </span>
+                </div>
         </section>
+        <div class='card-form' style="display: none">
+            <label for="type">Type <input type="text" name="type" id="type" required></label>
+            
+            <label for="title">Title <input type="text" name="title" id="title" required></label>
+            
+            <label for="jsCode">JavaScript Code <textarea name="jsCode" id="jsCode" cols="30" rows="5" placeholder="Write the JavaScript code here" required></textarea></label>
+            
+            <label for="jqCode">jQuery Code <textarea name="jqCode" id="jqCode" cols="30" rows="5" placeholder="Write the jQuery code here" required></textarea></label>
+
+            <label for="jsFunction">JavaScript Function <textarea name="jsFunction" id="jsFunction" cols="30" rows="5" placeholder="Write the JavaScript function here" required></textarea></label>
+            
+            <label for="jqFunction">jQuery Function <textarea name="jqFunction" id="jqFunction" cols="30" rows="5" placeholder="Write the jQuery function here" required></textarea></label>
+            
+            <label for="js-Test-Area">JavaScript Test Area <textarea name="jsTestArea" id="jsTestArea" cols="30" rows="5" placeholder="Optional: introduce any required JavaScript elements here"></textarea></label>
+            
+            <label for="jqFunction">jQuery Test Area <textarea name="jq-Test-Area" id="jqTestArea" cols="30" rows="5" placeholder="Optional: introduce any required JavaScript elements here"></textarea></label>
+            <button id="cancel">Cancel</button>
+            <button id="submit">Submit</button>
+            
+            
+        </div>
         <main>
             <section class="grid-container">
         

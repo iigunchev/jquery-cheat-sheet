@@ -3,7 +3,7 @@ let cardsContent = [
         id: 'fun-01',
         type: 'Functions',
         title: 'Create an HTML element',
-        jsCode: `<code>const btn = document.createElement("button");</code>`,
+        jsCode: `const btn = document.createElement("button");`,
         jqCode: `<code>const btn = $("&#60;button&#62; Button &#60;/button&#62;");</code>`,
         jsTest: function(element){
             jsCreateHtmlElement(element);
@@ -45,8 +45,8 @@ let cardsContent = [
         jqTest: function(element){
             jqAppendHtmlElement(element)
         },
-        jsTestText: '<div>This is a div</div>',
-        jqTestText: '<div>This is a div</div>',          
+        jsTestText: '<div class="test-div">This is a div</div>',
+        jqTestText: '<div class="test-div">This is a div</div>',          
     },
     {
         id: 'fun-04',

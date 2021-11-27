@@ -9,149 +9,148 @@ const eventsBtn = document.querySelector('#events-btn');
 const buttons = document.querySelectorAll('button');
 const comparisonContainer = document.querySelector('.comparison-container');
 const blackBg = document.querySelector('.black-bg');
+const addCard = document.querySelector('.addCard');
 
 let cardObj = {};
-const htmlElements =["a",
-"abbr",
-"acronym",
-"address",
-"applet",
-"area",
+const htmlElements =[
 "article",
-"aside",
-"audio",
-"b",
-"base",
-"basefont",
-"bdi",
-"bdo",
-"bgsound",
-"big",
-"blink",
-"blockquote",
-"body",
-"br",
-"button",
-"canvas",
-"caption",
-"center",
-"cite",
-"code",
-"col",
-"colgroup",
-"content",
-"data",
-"datalist",
-"dd",
-"decorator",
-"del",
-"details",
-"dfn",
-"dir",
+// "aside",
+// "audio",
+// "b",
+// "base",
+// "basefont",
+// "bdi",
+// "bdo",
+// "bgsound",
+// "big",
+// "blink",
+// "blockquote",
+// "body",
+// "br",
+// "button",
+// "canvas",
+// "caption",
+// "center",
+// "cite",
+// "code",
+// "col",
+// "colgroup",
+// "content",
+// "data",
+// "datalist",
+// "dd",
+// "decorator",
+// "del",
+// "details",
+// "dfn",
+// "dir",
 "div",
-"dl",
-"dt",
-"element",
-"em",
-"embed",
-"fieldset",
-"figcaption",
-"figure",
-"font",
-"footer",
-"form",
-"frame",
-"frameset",
+// "dl",
+// "dt",
+// "element",
+// "em",
+// "embed",
+// "fieldset",
+// "figcaption",
+// "figure",
+// "font",
+// "footer",
+// "form",
+// "frame",
+// "frameset",
 "h1",
 "h2",
 "h3",
 "h4",
 "h5",
 "h6",
-"head",
-"header",
-"hgroup",
-"hr",
-"html",
-"i",
-"iframe",
-"img",
-"input",
-"ins",
-"isindex",
-"kbd",
-"keygen",
-"label",
-"legend",
-"li",
-"link",
-"listing",
-"main",
-"map",
-"mark",
-"marquee",
-"menu",
-"menuitem",
-"meta",
-"meter",
-"nav",
-"nobr",
-"noframes",
-"noscript",
-"object",
-"ol",
-"optgroup",
-"option",
-"output",
-"p",
-"param",
-"plaintext",
-"pre",
-"progress",
-"q",
-"rp",
-"rt",
-"ruby",
-"s",
-"samp",
-"script",
-"section",
-"select",
-"shadow",
-"small",
-"source",
-"spacer",
-"span",
-"strike",
-"strong",
-"style",
-"sub",
-"summary",
-"sup",
-"table",
-"tbody",
-"td",
-"template",
-"textarea",
-"tfoot",
-"th",
-"thead",
-"time",
-"title",
-"tr",
-"track",
-"tt",
-"u",
-"ul",
-"var",
+// "head",
+// "header",
+// "hgroup",
+// "hr",
+// "html",
+// "i",
+// "iframe",
+// "img",
+// "input",
+// "ins",
+// "isindex",
+// "kbd",
+// "keygen",
+// "label",
+// "legend",
+// "li",
+// "link",
+// "listing",
+// "main",
+// "map",
+// "mark",
+// "marquee",
+// "menu",
+// "menuitem",
+// "meta",
+// "meter",
+// "nav",
+// "nobr",
+// "noframes",
+// "noscript",
+// "object",
+// "ol",
+// "optgroup",
+// "option",
+// "output",
+// "p",
+// "param",
+// "plaintext",
+// "pre",
+// "progress",
+// "q",
+// "rp",
+// "rt",
+// "ruby",
+// "s",
+// "samp",
+// "script",
+// "section",
+// "select",
+// "shadow",
+// "small",
+// "source",
+// "spacer",
+// "span",
+// "strike",
+// "strong",
+// "style",
+// "sub",
+// "summary",
+// "sup",
+// "table",
+// "tbody",
+// "td",
+// "template",
+// "textarea",
+// "tfoot",
+// "th",
+// "thead",
+// "time",
+// "title",
+// "tr",
+// "track",
+// "tt",
+// "u",
+// "ul",
+// "var",
 "video",
 "wbr",
 "xmp"];
 const jsVariables = ['let', 'const', 'var'];
-const jsMethods = ['createElement', 'removeChild', 'remove', 'appendChild', 'insertBefore', 'append', 'prepend', 'createElement', 'insertAdjacentElement', 'innerHTML', 'after'];
-const jsSelectors = ['document', 'parentNode', 'firstChild', 'lastChild', 'children' ];
-const jsOther = ['afterend', 'first', 'element', 'contains'];
+const jsMethods = ['createElement', 'removeChild', 'remove', 'appendChild', 'insertBefore', 'append', 'prepend', 'createElement', 'insertAdjacentElement', 'innerHTML'];
+const jsSelectors = ['document', 'parentNode', 'children' ];
+const jsOther = ['afterend', 'first', 'element', 'contains', 'firstChild', 'lastChild'];
 
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 cards.forEach(card => {
     card.addEventListener('click', () =>{
@@ -160,7 +159,7 @@ cards.forEach(card => {
         // card.classList.toggle('full-size');
         $('.black-bg').fadeIn(300);
         createComparison(body)
-        $('.centered').fadeIn(200)
+        $('.centered').fadeIn(150)
     })
 })
 // Buttons
@@ -249,12 +248,12 @@ function createComparison(element){
     rightTestArea.innerHTML = cardObj[0].jqTestText;;
     leftCol.appendChild(leftTestArea);
     rightCol.appendChild(rightTestArea);
-    jsTryBtn.onclick = () => {
+    $(jsTryBtn).one('click', () => {
         cardObj[0].jsTest(leftTestArea);
-    }
-    jqTryBtn.onclick = () => {
-        cardObj[0].jqTest(rightTestArea);
-    }
+    }); 
+    $(jqTryBtn).one('click', () => {
+        cardObj[0].jsTest(rightTestArea);
+    }); 
     const closeModal = document.createElement('div');
     closeModal.className = 'close-div';
     closeModal.innerHTML = `<span class='close'>Close</span>`;
@@ -262,32 +261,73 @@ function createComparison(element){
     $('.info-container').fadeIn('slow')
     infoContainer.insertAdjacentElement('afterbegin', closeModal);
     $('.close').on('click', ()=>{
-        $('.centered').fadeOut(300);
-        $('.black-bg').fadeOut(300)
+        $('.centered').fadeOut(200);
+        $('.centered').remove();
+        $('.black-bg').fadeOut(200)
     })
 }
 
-function codeSnippetFormatter(string) {
-    const words = string.match(/\w+/g);
-    let formattedCode = string;
+function codeSnippetFormatter(codeString) {
+    const words = codeString.match(/\w+/g);
+    // const tags = codeString.match(/<\/?[a-zA-Z0-9]+(>)/g);
+    let formattedCode = codeString;
+
+    // tags.forEach(tag => {
+    //     console.log(tag)
+    //     if (tag === '<code>' || tag === '</code>') return;
+    //     formattedCode = formattedCode.replaceAll(tag, `<span style='color:#f39c12'>${tag}</span>`);
+    // })
+    
     words.forEach(word => {
+        let color = ""
         // if (htmlElements.includes(word)) {
         //     formattedCode = formattedCode.replace(word, `<span style='color:#f39c12'>${word}</span>`);
-        if (jsVariables.includes(word)) {
-            formattedCode = formattedCode.replaceAll(word, `<span style='color:#702fa8'>${word}</span>`);
-        } else if (jsMethods.includes(word)) {
-            formattedCode = formattedCode.replaceAll(word, `<span style='color:#0e83cd'>${word}</span>`);
-        } else if (jsSelectors.includes(word)) {
-            formattedCode = formattedCode.replaceAll(word, `<span style='color:#f39c12'>${word}</span>`);
-        } else if(jsOther.includes(word)) {
-            formattedCode = formattedCode.replaceAll(word, `<span style='color:#64bb5d'>${word}</span>`)
-        }
-        // } else if(jQueryMethods.includes(word)){
-        //     formattedCode = formattedCode.replace(word, `<span style='color:#16a085'>${word}</span>`);
-        // }
+        if (jsVariables.includes(word)) color = "#702fa8"
+        else if (jsMethods.includes(word)) color = "#0e83cd"
+        else if (jsSelectors.includes(word)) color = "#f39c12"
+        else if(jsOther.includes(word)) color = "#64bb5d"
+        else if(htmlElements.includes(word)) color = "#f39c12"
+        
+        if(color !== "") formattedCode = formattedCode.replaceAll(word, `<span style='color:${color}'>${word}</span>`);
     })
     return formattedCode;
 }
+
+const submitBtn = document.querySelector('#submit');
+addCard.addEventListener('click', addCardModal);
+submitBtn.addEventListener('click', () =>{
+    // event.preventDefault();
+    let newCard = new Object();
+    newCard.id = 'fun-06';
+    newCard.type = $('#type').val();
+    newCard.title = $('#title').val();
+    newCard.jsCode = $('#jsCode').val();
+    newCard.jqCode = $('#jqCode').val();
+    newCard.jsTest = $('#jsFunction').val();
+    newCard.jqTest = $('#jqFunction').val();
+    newCard.jsTestText = $('#js-Test-Area').val();
+    newCard.jqTestText = $('#jq-Test-Area').val();
+})
+
+function addCardModal() {
+    const inputContainer = $( '<div class="input-container"></div>');
+
+}
+
+$('.search-icon').on('click', () => {
+    let searchText = $('#search').val();
+    cards.forEach(card => {
+        if (!card.innerText.toLowerCase().includes(searchText)) {
+            card.style.display = 'none';
+        } 
+    })
+})
+$('#search').on('keyup', function (e) {
+        event.preventDefault();
+        $('.search-icon').click();
+})
+
+
 
 /* ***** JavaScript Funcions *****/
 
@@ -307,7 +347,8 @@ function jsRemoveHtmlElement(element){
 function jsAppendHtmlElement(element){
     const p = document.createElement('p');
     p.innerHTML = 'Another div appended!'
-    element.firstChild.appendChild(p);
+    p.classList.add('new-element')
+    element.appendChild(p);
 };
 
 // PREPEND AN HTML ELEMENT

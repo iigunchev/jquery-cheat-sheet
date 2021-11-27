@@ -13,7 +13,7 @@ function jqRemoveHtmlElement(element){
 
 // APPEND AN HTML ELEMENT
 function jqAppendHtmlElement(element){
-    $(element).append("<p>Another div appended!</p>");
+    $(element).append("<div class='new-element'>Another div appended!</div>");
 };
 // PREPEND AN HTML ELEMENT
 function jqPrependHtmlElement(element){
