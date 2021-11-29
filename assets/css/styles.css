@@ -143,12 +143,13 @@ code {
     width: 600px;
     padding: 20px;
     position:fixed; 
-    top: calc(50% - 350px);
+    top: 75px;
     left: calc(50% - 300px);
     background-color: #fff;
     box-shadow: -7.5px 7.5px black;
     border: 2px solid black;
     /* display:none; */
+    z-index: 2;
 }
 .black-bg {
     width: 100%;
@@ -214,12 +215,33 @@ code {
     grid-template-columns: 1fr 1fr;
     width: 60%;
     gap: 0.5em;
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    box-shadow: -7.5px 7.5px black;
+    border: 2px solid black;
+    padding: 20px;
+    top: 75px;
+    left: calc(50% - 450px);
 }
 .card-form input, textarea {
     display: block;
     border: 1px solid black;
     border-radius: 2.5px;
     padding: 2.5px;
+    margin-bottom: 5px;
+}
+.card-form button {
+    width: 150px;
+}
+.left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+.add-card-btns {
+    justify-self: flex-end;
+    text-align: right;
 }
 .search-area {
     position: relative;
@@ -240,4 +262,7 @@ code {
 .search-icon:hover {
     transform:  scale(1.4);
     transition: 200ms ease-out;
+}
+.crossed {
+    text-decoration: line-through;
 }

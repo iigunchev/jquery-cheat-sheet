@@ -25,3 +25,10 @@ function jqAddAfterHtmlElement(element){
     const p = $( '<p><b>Added after the target element!</b></p>' );
     $(element).children(':first').after(p);
 };
+
+// ITERATE A COLLECTION OF ELEMENTS
+function jqIterateCollectionOfElements() {
+    $( 'ol li' ).each(function(index, element) {
+        $(element).text($(element).text() + ' FC');
+    });
+};

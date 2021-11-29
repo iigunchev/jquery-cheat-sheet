@@ -37,26 +37,31 @@
                     </span>
                 </div>
         </section>
-        <div class='card-form' style="display: none">
-            <label for="type">Type <input type="text" name="type" id="type" required></label>
-            
-            <label for="title">Title <input type="text" name="title" id="title" required></label>
-            
-            <label for="jsCode">JavaScript Code <textarea name="jsCode" id="jsCode" cols="30" rows="5" placeholder="Write the JavaScript code here" required></textarea></label>
-            
-            <label for="jqCode">jQuery Code <textarea name="jqCode" id="jqCode" cols="30" rows="5" placeholder="Write the jQuery code here" required></textarea></label>
-
-            <label for="jsFunction">JavaScript Function <textarea name="jsFunction" id="jsFunction" cols="30" rows="5" placeholder="Write the JavaScript function here" required></textarea></label>
-            
-            <label for="jqFunction">jQuery Function <textarea name="jqFunction" id="jqFunction" cols="30" rows="5" placeholder="Write the jQuery function here" required></textarea></label>
-            
-            <label for="js-Test-Area">JavaScript Test Area <textarea name="jsTestArea" id="jsTestArea" cols="30" rows="5" placeholder="Optional: introduce any required JavaScript elements here"></textarea></label>
-            
-            <label for="jqFunction">jQuery Test Area <textarea name="jq-Test-Area" id="jqTestArea" cols="30" rows="5" placeholder="Optional: introduce any required JavaScript elements here"></textarea></label>
-            <button id="cancel">Cancel</button>
-            <button id="submit">Submit</button>
-            
-            
+        <div class='card-form' style='display: none;'>
+            <div class="left-col">
+                <label for="type">Type</label>
+                <input type="text" name="type" id="type" required>
+                <label for="jsCode">JavaScript Code</label>
+                <textarea name="jsCode" id="jsCode" cols="30" rows="5" placeholder="Write the JavaScript code here" required></textarea>
+                <label for="jsFunction">JavaScript Function</textarea></label>
+                <textarea name="jsFunction" id="jsFunction" cols="30" rows="5" placeholder="Write the JavaScript function here" required></textarea>
+                <label for="js-Test-Area">JavaScript Test Area</textarea></label>
+                <textarea name="jsTestArea" id="jsTestArea" cols="30" rows="5" placeholder="Optional: introduce any required JavaScript elements here"></textarea>
+            </div>
+            <div class="right-col">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required>
+                <label for="jqCode">jQuery Code </label>
+                <textarea name="jqCode" id="jqCode" cols="30" rows="5" placeholder="Write the jQuery code here" required></textarea>
+                <label for="jqFunction">jQuery Function </label>
+                <textarea name="jqFunction" id="jqFunction" cols="30" rows="5" placeholder="Write the jQuery function here" required></textarea>
+                <label for="jqFunction">jQuery Test Area</label>
+                <textarea name="jq-Test-Area" id="jqTestArea" cols="30" rows="5" placeholder="Optional: introduce any required JavaScript elements here"></textarea>
+                <div class="add-card-btns">
+                    <button id="cancel">Cancel</button>
+                    <button id="submit">Submit</button>
+                </div>
+            </div>
         </div>
         <main>
             <section class="grid-container">
@@ -146,7 +151,7 @@
         
                 <!-- SELECTORS -->
                 
-                <div class="card">
+                <div class="card" data-id='sel-01'>
                     <h2>Selectors</h2>
                     <h1>Iterate a collection of elements</h1>
                 </div>
@@ -241,12 +246,12 @@
                     <h2>Events</h2>
                     <h1>Show the clicked item of an UL list</h1>
                 </div>
+            </div>
+            <div class="black-bg"></div>
             </section>
             <section class="comparison-container">
 
             </section>
         </main>
-    </div>
-    <div class="black-bg"></div>
 </body>
 </html>

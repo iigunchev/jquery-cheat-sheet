@@ -1,5 +1,3 @@
-// import { jqCreateHtmlElement, jqRemoveHtmlElement, jqAppendHtmlElement, jqPrependHtmlElement } from '/assets/js/jquery.js';
-
 const body = document.querySelector('body');
 const cards = document.querySelectorAll('.card');
 const allBtn = document.querySelector('#all-btn');
@@ -144,66 +142,68 @@ const htmlElements =[
 "wbr",
 "xmp"];
 const jsVariables = ['let', 'const', 'var'];
-const jsMethods = ['createElement', 'removeChild', 'remove', 'appendChild', 'insertBefore', 'append', 'prepend', 'createElement', 'insertAdjacentElement', 'innerHTML'];
-const jsSelectors = ['document', 'parentNode', 'children' ];
-const jsOther = ['afterend', 'first', 'element', 'contains', 'firstChild', 'lastChild'];
+const jsMethods = ['createElement', 'removeChild', 'remove', 'appendChild', 'insertBefore', 'append', 'prepend', 'createElement', 'insertAdjacentElement', 'innerHTML', 'length', 'innerText', 'text', 'function'];
+const jsSelectors = ['parentNode', 'children', 'querySelectorAll', 'classList', 'listItem', 'each'];
+const jsOther = ['afterend', 'first', 'element', 'contains', 'firstChild', 'lastChild', 'document'];
 
-function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
+initButtons();
 
-cards.forEach(card => {
-    card.addEventListener('click', () =>{
-        const cardId = card.getAttribute('data-id');
-        cardObj = cardsContent.filter(element => element.id === cardId);
-        // card.classList.toggle('full-size');
-        $('.black-bg').fadeIn(300);
-        createComparison(body)
-        $('.centered').fadeIn(150)
-    })
-})
 // Buttons
-function seeAllBtns() {
+function initButtons() {
     cards.forEach(card => {
-        card.style.display = 'block';
-    });
-}
-allBtn.addEventListener('click', () =>{
-    seeAllBtns();
-})
-functionsBtn.addEventListener('click', () =>{
-    seeAllBtns();
-    cards.forEach(card => {
-        if (!card.innerText.includes('Functions')) {
-            card.style.display = 'none';
-        }
-    })
-})
-selectorsBtn.addEventListener('click', () =>{
-    seeAllBtns();
-    cards.forEach(card => {
-        if (!card.innerText.includes('Selectors')) {
-            card.style.display = 'none';
-        }
-    })
-})
-eventsBtn.addEventListener('click', () =>{
-    seeAllBtns();
-    cards.forEach(card => {
-        if (!card.innerText.includes('Events')) {
-            card.style.display = 'none';
-        }
-    })
-})
-
-buttons.forEach(button => {
-    button.addEventListener('click', () =>{
-        buttons.forEach(button => {
-            button.classList.remove('clicked');
+        card.addEventListener('click', () =>{
+            const cardId = card.getAttribute('data-id');
+            cardObj = cardsContent.filter(element => element.id === cardId);
+            // card.classList.toggle('full-size');
+            $('.black-bg').fadeIn(300);
+            createComparison(body)
+            $('.centered').fadeIn(150)
+            
         })
-        button.classList.add('clicked');
     })
-})
+
+    function seeAllBtns() {
+        cards.forEach(card => {
+            card.style.display = 'block';
+        });
+    }
+    allBtn.addEventListener('click', () =>{
+        seeAllBtns();
+    })
+    functionsBtn.addEventListener('click', () =>{
+        seeAllBtns();
+        cards.forEach(card => {
+            if (!card.innerText.includes('Functions')) {
+                card.style.display = 'none';
+            }
+        })
+    })
+    selectorsBtn.addEventListener('click', () =>{
+        seeAllBtns();
+        cards.forEach(card => {
+            if (!card.innerText.includes('Selectors')) {
+                card.style.display = 'none';
+            }
+        })
+    })
+    eventsBtn.addEventListener('click', () =>{
+        seeAllBtns();
+        cards.forEach(card => {
+            if (!card.innerText.includes('Events')) {
+                card.style.display = 'none';
+            }
+        })
+    })
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', () =>{
+            buttons.forEach(button => {
+                button.classList.remove('clicked');
+            })
+            button.classList.add('clicked');
+        })
+    })
+}
 
 // Add modal info
 function createComparison(element){
@@ -252,7 +252,7 @@ function createComparison(element){
         cardObj[0].jsTest(leftTestArea);
     }); 
     $(jqTryBtn).one('click', () => {
-        cardObj[0].jsTest(rightTestArea);
+        cardObj[0].jqTest(rightTestArea);
     }); 
     const closeModal = document.createElement('div');
     closeModal.className = 'close-div';
@@ -282,7 +282,7 @@ function codeSnippetFormatter(codeString) {
         let color = ""
         // if (htmlElements.includes(word)) {
         //     formattedCode = formattedCode.replace(word, `<span style='color:#f39c12'>${word}</span>`);
-        if (jsVariables.includes(word)) color = "#702fa8"
+        if (jsVariables.includes(word)) color = "#c0392b"
         else if (jsMethods.includes(word)) color = "#0e83cd"
         else if (jsSelectors.includes(word)) color = "#f39c12"
         else if(jsOther.includes(word)) color = "#64bb5d"
@@ -292,7 +292,7 @@ function codeSnippetFormatter(codeString) {
     })
     return formattedCode;
 }
-
+let newItem;
 const submitBtn = document.querySelector('#submit');
 addCard.addEventListener('click', addCardModal);
 submitBtn.addEventListener('click', () =>{
@@ -307,10 +307,31 @@ submitBtn.addEventListener('click', () =>{
     newCard.jqTest = $('#jqFunction').val();
     newCard.jsTestText = $('#js-Test-Area').val();
     newCard.jqTestText = $('#jq-Test-Area').val();
+    localStorage.setItem('newItem', JSON.stringify(newCard));
+    $('.card-form').css('display', 'none');
+    $('.black-bg').fadeOut(150);
+    createNewCardElement(JSON.parse(localStorage.getItem('newItem')))
 })
 
+function createNewCardElement(element) {
+    let div = document.createElement('div');
+    div.classList.add('card');
+    div.setAttribute('data-id', element.id);
+    let h2 = document.createElement('h2');
+    h2.innerText = element.type;
+    let h1 = document.createElement('h1');
+    h1.innerText = element.title;
+    div.appendChild(h2);
+    div.appendChild(h1);
+    document.querySelector('.grid-container').insertBefore(div, document.querySelector('.grid-container').firstChild);
+    initButtons();
+
+}
+
 function addCardModal() {
-    const inputContainer = $( '<div class="input-container"></div>');
+    // const inputContainer = $( '<div class="input-container"></div>');
+        $('.card-form').css('display', 'grid');
+        $('.black-bg').fadeIn(300);
 
 }
 
@@ -323,10 +344,20 @@ $('.search-icon').on('click', () => {
     })
 })
 $('#search').on('keyup', function (e) {
+    if (e.keyCode === 8){
+        event.preventDefault();
+        $('#search').val().slice(0, -1);
+        $('.search-icon').click();
+    } else {
         event.preventDefault();
         $('.search-icon').click();
-})
+    }
+});
 
+$('#cancel').on('click', () => {
+    $('.card-form').css('display', 'none');
+    $('.black-bg').fadeOut(150);
+})
 
 
 /* ***** JavaScript Funcions *****/
@@ -365,3 +396,10 @@ function jsAddAfterHtmlElement(element){
     element.firstChild.insertAdjacentElement('afterend', p);
 };
 
+// ITERATE A COLLECTION OF ELEMENTS
+function jsIterateCollectionOfElements(element){
+    let listItem = document.querySelectorAll("ul li");
+    for (let i = 0; i < listItem.length; i++) {
+        listItem[i].classList.add("crossed");
+        }
+}

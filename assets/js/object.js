@@ -9,7 +9,7 @@ let cardsContent = [
             jsCreateHtmlElement(element);
         },
         jqTest: function(element){
-            jqCreateHtmlElement(element)
+            jqCreateHtmlElement(element);
         },
         jsTestText: '',
         jqTestText: '',       
@@ -43,7 +43,7 @@ let cardsContent = [
             jsAppendHtmlElement(element);
         },
         jqTest: function(element){
-            jqAppendHtmlElement(element)
+            jqAppendHtmlElement(element);
         },
         jsTestText: '<div class="test-div">This is a div</div>',
         jqTestText: '<div class="test-div">This is a div</div>',          
@@ -60,7 +60,7 @@ let cardsContent = [
             jsPrependHtmlElement(element);
         },
         jqTest: function(element){
-            jqPrependHtmlElement(element)
+            jqPrependHtmlElement(element);
         },
         jsTestText: '<div>This is a div</div>',
         jqTestText: '<div>This is a div</div>',          
@@ -78,9 +78,41 @@ let cardsContent = [
             jsAddAfterHtmlElement(element);
         },
         jqTest: function(element){
-            jqAddAfterHtmlElement(element)
+            jqAddAfterHtmlElement(element);
         },
         jsTestText: '<div>Add an element below.</div><div>Another div.</div>',
         jqTestText: '<div>Add an element below.</div><div>Another div.</div>',          
+    },
+    {
+        id: 'sel-01',
+        type: 'Selectors',
+        title: 'Iterate a collection of elements',
+        jsCode: `
+        <code>let listItem = document.querySelectorAll("ul li");</code>
+        <code>for (let i = 0; i &#60; listItem.length; i++) {</code>
+            <code>listItem[i].classList.add("crossed");</code>
+            <code>}</code>`,
+        jqCode: `
+        <code>$("ol li").each(function(index, element) {</code>
+            <code>$(element).text( $(element).text() + " FC!")</code>
+            <code>});</code>`,
+        jsTest: function(element){
+            jsIterateCollectionOfElements(element);
+        },
+        jqTest: function(){
+            jqIterateCollectionOfElements();
+        },
+        jsTestText: `
+        <ul><b>Shopping list</b>
+        <li>Bread</li>
+        <li>Pasta</li>
+        <li>Corn</li>
+        </ul>`,
+        jqTestText: `
+        <ol><b>Scoreboard</b>
+        <li>Chelsea</li>
+        <li>Manchester City</li>
+        <li>Liverpool</li>
+        </ol>`,          
     },
 ];
